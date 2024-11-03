@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgresczml
+    environment:
+      - DATABASE_URL=postgresql://yourusername:yourpassword@postgresczml:5432/yourdbname
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  postgresczml:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=yourusername
+      - POSTGRES_PASSWORD=yourpassword
+      - POSTGRES_DB=yourdbname
+    volumes:
+      - postgresczml-data:/var/lib/postgresql/data
+
+volumes:
+  postgresczml-data:

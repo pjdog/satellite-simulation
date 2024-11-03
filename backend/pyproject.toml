@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "satellite-sim"
+version = "0.1.0"
+description = "This project is attempting to create a webapp for testing transfers, rockets, etc and displaying them interactively in unity."
+authors = ["Paul Hughes"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+orekit-jpype = "^12.2.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
